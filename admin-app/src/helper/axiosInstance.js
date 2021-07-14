@@ -4,7 +4,7 @@ import store from '../store';
 import { LOGOUT } from '../store/types/AuthType';
 
   const defaultOptions = {
-    baseURL: process.env.REACT_APP_API_PATH,
+    baseURL: `${process.env.REACT_APP_API_PATH}/api/admin`,
     headers: {
       'Content-Type': 'application/json',
     },

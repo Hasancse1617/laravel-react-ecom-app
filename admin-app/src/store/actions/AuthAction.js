@@ -5,7 +5,7 @@ export const AuthLogin = (loginData) =>{
     return async (dispatch) =>{
          try {
              dispatch({type: SET_AUTH_LOADER});
-             const { data } = await axiosInstance.post("/api/admin/login", loginData);
+             const { data } = await axiosInstance.post("/login", loginData);
              localStorage.setItem("myToken", data.token);
              localStorage.setItem("user", JSON.stringify(data.user));
              dispatch({type: SET_TOKEN, payload: {token: data.token, userdetails: data.user}});

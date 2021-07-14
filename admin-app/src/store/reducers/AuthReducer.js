@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode';
-import { LOGOUT, REMOVE_AUTH_ERRORS, REMOVE_AUTH_LOADER, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_TOKEN } from "../types/AuthType";
+import { LOGOUT, REMOVE_AUTH_ERRORS, REMOVE_AUTH_LOADER, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_TOKEN, SET_USER } from "../types/AuthType";
 
 const initState = {
     loading: false,
@@ -45,14 +45,15 @@ const AuthReducer = (state=initState, action) =>{
     }
     else if (action.type === SET_TOKEN) {
 		const decoded = verifyToken(action.payload.token);
-        console.log('kkkkkkk',action.payload.userdetails)
 		return {
 			...state,
 			token: action.payload.token,
             user: action.payload.userdetails
 		};
 	}
-    
+    else if(action.type === SET_USER){
+        return {...state, user: action.payload}
+    }
     else if(action.type === LOGOUT){
         return {...state, token: '', user: ""}
     }

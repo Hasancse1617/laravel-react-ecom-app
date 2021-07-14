@@ -36,7 +36,7 @@ const Login = () => {
         if(Object.keys(loginErrors).length > 0){
             for(const error in loginErrors){
                 toast.error(loginErrors[error])
-             }
+            }
             dispatch({type: REMOVE_AUTH_ERRORS});
         }
     }, [loginErrors]);

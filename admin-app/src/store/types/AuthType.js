@@ -1,6 +1,7 @@
 export const SET_AUTH_LOADER = "SET_AUTH_LOADER";
 export const REMOVE_AUTH_LOADER = "REMOVE_AUTH_LOADER";
 export const SET_TOKEN = "SET_TOKEN";
+export const SET_USER = "SET_USER";
 export const SET_AUTH_ERRORS = "SET_AUTH_ERRORS";
 export const REMOVE_AUTH_ERRORS = "REMOVE_AUTH_ERRORS";
 export const LOGOUT = "LOGOUT";

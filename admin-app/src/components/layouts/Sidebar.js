@@ -55,13 +55,13 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to={`/admin/user/update-profile/${user._id}`} activeClassName="active" className="nav-link">
+                            <NavLink exact to={`/admin/user/update-profile/${user.id}`} activeClassName="active" className="nav-link">
                             <i className="far fa-circle nav-icon"></i>
                             <p>Update Profile</p>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to={`/admin/user/update-password/${user._id}`} activeClassName="active" className="nav-link">
+                            <NavLink exact to={`/admin/user/update-password/${user.id}`} activeClassName="active" className="nav-link">
                             <i className="far fa-circle nav-icon"></i>
                             <p>Update Password</p>
                             </NavLink>
