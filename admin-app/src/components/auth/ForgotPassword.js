@@ -24,10 +24,10 @@ const ForgotPassword = () => {
         dispatch(forgotPassword(state));
     }
     useEffect(()=>{
-        if(loginErrors.length > 0){
-            loginErrors.map((error)=>{
-                toast.error(error.msg);
-            });
+        if(Object.keys(loginErrors).length > 0){
+            for(const error in loginErrors){
+                toast.error(loginErrors[error])
+            }
             dispatch({type: REMOVE_AUTH_ERRORS});
         }
     }, [loginErrors]);
@@ -39,7 +39,7 @@ const ForgotPassword = () => {
               title: message,
               toast: true,
               showConfirmButton: false,
-              timer: 2000
+              timer: 5000
             })
           dispatch({type: REMOVE_AUTH_MESSAGE});
         }

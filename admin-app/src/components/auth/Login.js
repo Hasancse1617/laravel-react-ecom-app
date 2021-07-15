@@ -28,6 +28,7 @@ const Login = () => {
         })
     }
     const userLogin = (e) =>{
+        console.log(state)
         e.preventDefault();
         dispatch(AuthLogin(state));
     }

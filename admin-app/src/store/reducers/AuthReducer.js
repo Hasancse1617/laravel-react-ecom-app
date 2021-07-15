@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode';
-import { LOGOUT, REMOVE_AUTH_ERRORS, REMOVE_AUTH_LOADER, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_TOKEN, SET_USER } from "../types/AuthType";
+import { LOGOUT, REMOVE_AUTH_ERRORS, REMOVE_AUTH_LOADER, REMOVE_AUTH_MESSAGE, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_AUTH_MESSAGE, SET_TOKEN, SET_USER } from "../types/AuthType";
 
 const initState = {
     loading: false,
@@ -53,6 +53,12 @@ const AuthReducer = (state=initState, action) =>{
 	}
     else if(action.type === SET_USER){
         return {...state, user: action.payload}
+    }
+    else if(action.type === SET_AUTH_MESSAGE){
+        return {...state, message: action.payload}
+    }
+    else if(action.type === REMOVE_AUTH_MESSAGE){
+        return {...state, message: ''}
     }
     else if(action.type === LOGOUT){
         return {...state, token: '', user: ""}

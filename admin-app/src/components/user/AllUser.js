@@ -75,6 +75,7 @@ const AllUser = (props) => {
                       <tr>
                         <th>ID.</th>
                         <th>User Name</th>
+                        <th>Email</th>
                         <th>User Type</th>
                         <th>User Image</th>
                         <th>Action</th>
@@ -88,6 +89,7 @@ const AllUser = (props) => {
                           <tr key={user.id}>
                           <td>{ user.id }</td>
                           <td>{ user.name }</td>
+                          <td>{ user.email }</td>
                           <td><span class="badge bg-success">{ user.type }</span></td>
                           <td><img width="100" width="100" src={!user.image?`${process.env.REACT_APP_API_PATH}/images/admin_images/avatar.png`:`${process.env.REACT_APP_API_PATH}/images/admin_images/${user.image}`}/></td>
                           <td>

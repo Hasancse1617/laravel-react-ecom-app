@@ -1,5 +1,5 @@
 import axiosInstance from "../../helper/axiosInstance";
-import { REMOVE_AUTH_LOADER, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_TOKEN } from "../types/AuthType"
+import { REMOVE_AUTH_LOADER, SET_AUTH_ERRORS, SET_AUTH_LOADER, SET_AUTH_MESSAGE, SET_TOKEN } from "../types/AuthType"
 
 export const AuthLogin = (loginData) =>{
     return async (dispatch) =>{
@@ -16,22 +16,30 @@ export const AuthLogin = (loginData) =>{
     }
 }
 
-export const forgotPassword = () =>{
+export const forgotPassword = (state) =>{
     return async (dispatch) =>{
-         try {
-
-         } catch (error) {
-             
-         }
+        try {
+            dispatch({type: SET_AUTH_LOADER});
+            const {data} = await axiosInstance.post('/forgot-password',state);
+            dispatch({type: REMOVE_AUTH_LOADER});
+            dispatch({type: SET_AUTH_MESSAGE, payload: data.message});
+        } catch (error) {
+            dispatch({type: REMOVE_AUTH_LOADER});
+            dispatch({type: SET_AUTH_ERRORS, payload: error.response.data.errors});
+        }
     }
 }
 
-export const resetPassword = () =>{
+export const resetPassword = (state,token) =>{
     return async (dispatch) =>{
-         try {
-             
-         } catch (error) {
-             
-         }
+        try {
+            dispatch({type: SET_AUTH_LOADER});
+            const {data} = await axiosInstance.post(`/reset-password/${token}`,state);
+            dispatch({type: REMOVE_AUTH_LOADER});
+            dispatch({type: SET_AUTH_MESSAGE, payload: data.message});
+        } catch (error) {
+            dispatch({type: REMOVE_AUTH_LOADER});
+            dispatch({type: SET_AUTH_ERRORS, payload: error.response.data.errors});
+        }
     }
 }

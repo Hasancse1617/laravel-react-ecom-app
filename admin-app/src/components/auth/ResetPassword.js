@@ -13,7 +13,7 @@ const ResetPassword = (props) => {
     const {loading, loginErrors,message} = useSelector((state)=>state.AuthReducer);
     const [state, setState] = useState({
         password:'',
-        c_password:'',
+        confirm_password:'',
     });
     const handleInput = (e) =>{
         setState({
@@ -26,10 +26,10 @@ const ResetPassword = (props) => {
         dispatch(resetPassword(state,token));
     }
     useEffect(()=>{
-        if(loginErrors.length > 0){
-            loginErrors.map((error)=>{
-                toast.error(error.msg);
-            });
+        if(Object.keys(loginErrors).length > 0){
+            for(const error in loginErrors){
+                toast.error(loginErrors[error])
+            }
             dispatch({type: REMOVE_AUTH_ERRORS});
         }
     }, [loginErrors]);
@@ -73,7 +73,7 @@ const ResetPassword = (props) => {
                     </div>
                     </div>
                     <div class="input-group mb-3">
-                    <input type="password" name="c_password" value={state.c_password} onChange={handleInput} class="form-control" placeholder="Confirm Password"/>
+                    <input type="password" name="confirm_password" value={state.confirm_password} onChange={handleInput} class="form-control" placeholder="Confirm Password"/>
                     <div class="input-group-append">
                         <div class="input-group-text">
                         <span class="fas fa-lock"></span>
