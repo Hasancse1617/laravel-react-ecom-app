@@ -73,7 +73,7 @@ const AllUser = (props) => {
                     <table id="example2" class="table table-bordered table-hover">
                       <thead>
                       <tr>
-                        <th>ID.</th>
+                        <th>SL.</th>
                         <th>User Name</th>
                         <th>Email</th>
                         <th>User Type</th>
@@ -85,9 +85,9 @@ const AllUser = (props) => {
                     {
                       !loading?
                         users.length > 0 ?
-                        users.map((user)=>(
+                        users.map((user,index)=>(
                           <tr key={user.id}>
-                          <td>{ user.id }</td>
+                          <td>{ index+1 }</td>
                           <td>{ user.name }</td>
                           <td>{ user.email }</td>
                           <td><span class="badge bg-success">{ user.type }</span></td>
