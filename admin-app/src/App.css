@@ -50,3 +50,6 @@ nav.main-header {
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: hsla(192, 100%, 35%, 0.596); 
 }
+input[type=checkbox], input[type=radio] {
+  margin-top: 12px;
+}

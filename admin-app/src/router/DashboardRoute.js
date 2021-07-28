@@ -5,9 +5,10 @@ import Sidebar from "../components/layouts/Sidebar";
 import Footer from "../components/layouts/Footer";
 import UserRoute from "../components/user/UserRoute";
 import CategoryRoute from "../components/category/CategoryRoute";
-// import GenreRoute from "../components/genre/GenreRoute";
-// import VideoRoute from "../components/video/VideoRoute";
-// import InterviewRoute from "../components/interview/InterviewRoute";
+import BrandRoute from "../components/brand/BrandRoute";
+import BannerRoute from "../components/banner/BannerRoute";
+import ProductRoute from "../components/product/ProductRoute";
+
 
 const DashboardRoute = () => {
     const { path } = useRouteMatch();
@@ -19,9 +20,10 @@ const DashboardRoute = () => {
                 <Route exact path={`${path}/dashboard`} component={Dashboard}></Route>
                 <Route path={`${path}/user`} component={UserRoute}></Route>
                 <Route path={`${path}/category`} component={CategoryRoute}></Route>
-                {/* <Route path={`${path}/genre`} component={GenreRoute}></Route>
-                <Route path={`${path}/video`} component={VideoRoute}></Route>
-                <Route path={`${path}/interview`} component={InterviewRoute}></Route> */}
+                <Route path={`${path}/brand`} component={BrandRoute}></Route>
+                <Route path={`${path}/banner`} component={BannerRoute}></Route>
+                <Route path={`${path}/product`} component={ProductRoute}></Route>
+                {/* <Route path={`${path}/interview`} component={InterviewRoute}></Route> */}
             </Switch>
             <Footer/>
         </>

@@ -78,21 +78,27 @@ const Sidebar = () => {
                         </a>
                         <ul className="nav nav-treeview">
                         <li className="nav-item">
+                            <NavLink exact to="/admin/banner/all?page=1" activeClassName="active" className="nav-link">
+                            <i className="far fa-circle nav-icon"></i>
+                            <p>Banner</p>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink exact to="/admin/brand/all?page=1" activeClassName="active" className="nav-link">
+                            <i className="far fa-circle nav-icon"></i>
+                            <p>Brand</p>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink exact to="/admin/category/all?page=1" activeClassName="active" className="nav-link">
                             <i className="far fa-circle nav-icon"></i>
                             <p>Category</p>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to="/admin/genre/all?page=1" activeClassName="active" className="nav-link">
+                            <NavLink exact to="/admin/product/all?page=1" activeClassName="active" className={ pathname==='/admin/product/create' || pathname.includes('/admin/product/edit/') || pathname.includes('/admin/product/details/')?'nav-link active':'nav-link'}>
                             <i className="far fa-circle nav-icon"></i>
-                            <p>Genres</p>
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink exact to="/admin/video/all?page=1" activeClassName="active" className={ pathname==='/admin/video/create' || pathname.includes('/admin/video/edit/') || pathname.includes('/admin/video/details/')?'nav-link active':'nav-link'}>
-                            <i className="far fa-circle nav-icon"></i>
-                            <p>Videos</p>
+                            <p>Products</p>
                             </NavLink>
                         </li>                          
                         </ul>
